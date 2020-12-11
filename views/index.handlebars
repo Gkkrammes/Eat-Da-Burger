@@ -1,19 +1,29 @@
 <h1>Eat-Da-Burger</h1>
 
-<ul>
-  {{#each burgers}}
-  <li>
-    <p>
-      {{this.id}}. {{this.burger}}
-
-      <button data-burgerid="{{this.id}}" class="delburger">Devour Burger!</button>
-    </p>
-  </li>
-  {{/each}}
-</ul>
-
-<h2>Order a Burger</h2>
-<form id="burgerName" class="button-size">
-  <textarea type="text" name="burger"></textarea>
-  <button type="submit">Order Burger!</button>
-</form>
+<div class="grid-container">
+  <ul class="grid-item">
+    <h2>Order Burgers!</h2>
+      {{#each burgers}}
+      {{#unless devoured}}
+      {{> burgers/burger-stop devoured=false}}
+      {{/unless}}
+      {{/each}}
+  </ul>
+  <div class="grid-item">
+    <form class="add-burger">
+      <div class="form-group">
+        <label for="burger_name">Burger Name:</label>
+        <input type="text" id="burger_name" name="name">
+        <button type="submit">Order Burger</button>
+      </div>
+    </form>
+  </div>
+  <ul class="grid-item">
+    <h2>Devoured Burgers!</h2>
+      {{#each burgers}}
+      {{#if devoured}}
+      {{> burgers/burger-stop devoured=true}}
+      {{/if}}
+      {{/each}}
+  </ul>
+</div>
