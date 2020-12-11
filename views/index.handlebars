@@ -1,15 +1,7 @@
 <h1>Eat-Da-Burger</h1>
 
-<div class="grid-container">
-  <ul class="grid-item">
-    <h2>Order Burgers!</h2>
-      {{#each burgers}}
-      {{#unless devoured}}
-      {{> burgers/burger-stop devoured=false}}
-      {{/unless}}
-      {{/each}}
-  </ul>
-  <div class="grid-item">
+<div class="container">
+  <div>
     <form class="add-burger">
       <div class="form-group">
         <label for="burger_name">Burger Name:</label>
@@ -18,7 +10,16 @@
       </div>
     </form>
   </div>
-  <ul class="grid-item">
+  <div class='main'>
+  <ul id='order'>
+    <h2>Order Up!</h2>
+      {{#each burgers}}
+      {{#unless devoured}}
+      {{> burgers/burger-stop devoured=false}}
+      {{/unless}}
+      {{/each}}
+  </ul>
+  <ul id='devour'>
     <h2>Devoured Burgers!</h2>
       {{#each burgers}}
       {{#if devoured}}
@@ -26,4 +27,5 @@
       {{/if}}
       {{/each}}
   </ul>
+  </div>
 </div>
