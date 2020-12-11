@@ -1,5 +1,5 @@
 $(function() {
-   $(".order-burger").on("submit", function(event) {
+   $(".add-burger").on("submit", function(event) {
         var burgerName = $("#burger_name").val().trim();
         if (!burgerName) {
             alert("Must enter a burger name!");
